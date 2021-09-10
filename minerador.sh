@@ -45,7 +45,7 @@
 #        ssl         Encrypted tcp connection with TLS 1.2
 
 # Hostname
-HOSTNAME=$(hostname -s)
+WORKER=$(hostname -s)
 
 # asia1.ethermine.org / us1.ethermine.org / us2.ethermine.org
 SERVER="eu1.ethermine.org"
@@ -54,7 +54,7 @@ SERVER="eu1.ethermine.org"
 PORT="5555"
 
 #
-POOL="0x0f7fa87c552A34b18963137815Bc475D73Fd5ba7.$HOSTNAME"
+POOL="0x0f7fa87c552A34b18963137815Bc475D73Fd5ba7.$WORKER"
 
 while [ 1 ]; do
 	/usr/local/bin/et/bin/ethminer -U --HWMON 1 --farm-retries 4 -P stratum1+ssl://$POOL@$SERVER:$PORT &> /dev/null
